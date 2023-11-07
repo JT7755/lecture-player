@@ -2,6 +2,7 @@
 import { LitElement, html, css } from 'lit';
 import '@shoelace-style/shoelace/dist/components/dialog/dialog.js';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
+import "@lrnwebcomponents/video-player/video-player.js";
 import "./tv-channel.js";
 
 export class TvApp extends LitElement {
@@ -33,6 +34,10 @@ export class TvApp extends LitElement {
         margin: 16px;
         padding: 16px;
       }
+      .guideboxes {
+        display: grid;
+        max-width: 250px;
+      }
       `
     ];
   }
@@ -40,27 +45,31 @@ export class TvApp extends LitElement {
   render() {
     return html`
       <h2>${this.name}</h2>
-      ${
-        this.listings.map(
-          (item) => html`
-            <tv-channel 
-              title="${item.title}"
-              presenter="${item.metadata.author}"
-              @click="${this.itemClick}"
-            >
-            </tv-channel>
-          `
-        )
-      }
+      <div class="guideboxes">
+        ${
+          this.listings.map(
+            (item) => html`
+              <tv-channel 
+                title="${item.title}"
+                presenter="${item.metadata.author}"
+                @click="${this.itemClick}"
+              >
+              </tv-channel>
+            `
+          )
+        }
+      </div>
       <div>
         <!-- video -->
+        <video-player source="https://www.youtube.com/watch?v=LrS7dqokTLE" accent-color="orange" dark track="https://haxtheweb.org/files/HAXshort.vtt">
+        </video-player>
         <!-- discord / chat - optional -->
       </div>
       <!-- dialog -->
-      <sl-dialog label="Dialog" class="dialog">
+      <!-- <sl-dialog label="Dialog" class="dialog">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         <sl-button slot="footer" variant="primary" @click="${this.closeDialog}">Close</sl-button>
-      </sl-dialog>
+      </sl-dialog> -->
     `;
   }
 
