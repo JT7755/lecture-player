@@ -30,13 +30,28 @@ export class TvApp extends LitElement {
     return [
       css`
       :host {
-        display: block;
-        margin: 16px;
-        padding: 16px;
+        
       }
       .guideboxes {
         display: grid;
         max-width: 250px;
+      }
+
+      .videoContainer {
+        display: grid;
+      }
+
+      .leftElement {
+        grid-column: 1;
+        size: 100px;
+        margin-top: 50px;
+        margin-left: 50px;
+      }
+
+      .rightElement {
+        grid-column: 2;
+        padding-left: 100px;
+        width: 200px;
       }
       `
     ];
@@ -44,8 +59,20 @@ export class TvApp extends LitElement {
   // LitElement rendering template of your element
   render() {
     return html`
-      <h2>${this.name}</h2>
+    <div class="videoContainer">
+      <div class="gridPlayer">
+        <div class="leftElement">
+        <!-- video -->
+        <video-player class="player" source="https://www.youtube.com/watch?v=LrS7dqokTLE" accent-color="orange" dark track="https://haxtheweb.org/files/HAXshort.vtt"></video-player>
+        <tv-channel title="HAX: Wordpress Killer" presenter="Bryan Ollendyke">
+          <p>Chief Keef is an Amazing rapper with more than 6 studio albums.
+          </p>
+  </tv-channel>
+      </div>
+    </div>
+    <div class="rightElement">
       <div class="guideboxes">
+      <h2>${this.name}</h2>
         ${
           this.listings.map(
             (item) => html`
@@ -59,10 +86,9 @@ export class TvApp extends LitElement {
           )
         }
       </div>
+      </div>
       <div>
         <!-- video -->
-        <video-player source="https://www.youtube.com/watch?v=LrS7dqokTLE" accent-color="orange" dark track="https://haxtheweb.org/files/HAXshort.vtt">
-        </video-player>
         <!-- discord / chat - optional -->
       </div>
       <!-- dialog -->
@@ -70,6 +96,14 @@ export class TvApp extends LitElement {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         <sl-button slot="footer" variant="primary" @click="${this.closeDialog}">Close</sl-button>
       </sl-dialog> -->
+      <div class="buttons">
+        <div class="leftBtn">
+        <button type="button">Previous</button>   
+      </div>
+        <div class="rightBtn">
+          <button type="button"> Next</button>
+      </div>
+      </div>
     `;
   }
 
