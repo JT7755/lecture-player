@@ -34,7 +34,6 @@ export class TvApp extends LitElement {
       }
       .guideboxes {
         display: grid;
-        max-width: 250px;
       }
 
       .videoContainer {
@@ -53,6 +52,20 @@ export class TvApp extends LitElement {
         padding-left: 100px;
         width: 200px;
       }
+
+      .leftBtn {
+        display: inline-block;
+        padding-top: 20px;
+        padding-left: 50px;
+      }
+
+      .rightBtn {
+        display: inline-block;
+        padding-top: 20px;
+        padding-left: 375px;
+      }
+
+      .
       `
     ];
   }
@@ -64,7 +77,7 @@ export class TvApp extends LitElement {
         <div class="leftElement">
         <!-- video -->
         <video-player class="player" source="https://www.youtube.com/watch?v=LrS7dqokTLE" accent-color="orange" dark track="https://haxtheweb.org/files/HAXshort.vtt"></video-player>
-        <tv-channel title="HAX: Wordpress Killer" presenter="Bryan Ollendyke">
+        <tv-channel title="Chief Keef Discography" presenter="Mr. Keef">
           <p>Chief Keef is an Amazing rapper with more than 6 studio albums.
           </p>
         </tv-channel>
@@ -95,9 +108,10 @@ export class TvApp extends LitElement {
       <div class="buttons">
         <div class="leftBtn">
         <button type="button">Previous</button>   
-      </div>
+        </div>
         <div class="rightBtn">
           <button type="button"> Next</button>
+      </div>
       </div>
       </div>
     `;
