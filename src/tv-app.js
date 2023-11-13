@@ -67,7 +67,7 @@ export class TvApp extends LitElement {
         <tv-channel title="HAX: Wordpress Killer" presenter="Bryan Ollendyke">
           <p>Chief Keef is an Amazing rapper with more than 6 studio albums.
           </p>
-  </tv-channel>
+        </tv-channel>
       </div>
     </div>
     <div class="rightElement">
@@ -86,10 +86,6 @@ export class TvApp extends LitElement {
           )
         }
       </div>
-      </div>
-      <div>
-        <!-- video -->
-        <!-- discord / chat - optional -->
       </div>
       <!-- dialog -->
       <!-- <sl-dialog label="Dialog" class="dialog">
