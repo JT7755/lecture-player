@@ -47,10 +47,16 @@ export class TvApp extends LitElement {
         margin-left: 50px;
       }
 
-      .rightElement {
-        grid-column: 2;
+      .rightElement{
         padding-left: 100px;
-        width: 200px;
+        grid-column: 2;
+        width: 300px;
+        font-size: .94rem;
+        margin-top: 32px;
+        text-align: center;
+        -webkit-overflow-scrolling: touch;
+        overflow-y: auto;
+        height: 82.5vh;
       }
 
       .leftBtn {

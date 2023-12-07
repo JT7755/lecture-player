@@ -126,6 +126,57 @@
           "created": 1697033522,
           "updated": 1697034021
         }
+      },
+      {
+        "id": "item-8",
+        "indent": 0,
+        "location": "hax-wp-killer.html",
+        "slug": "hax-wp-killer",
+        "order": 0,
+        "parent": null,
+        "title": "Slide 8",
+        "description": "The future we need, not the future we have.",
+        "metadata": {
+          "source": "https://www.youtube.com/watch?v=9MT-BNuUCpM",
+          "timecode": 0,
+          "author":" ",
+          "created": 1697033522,
+          "updated": 1697034021
+        }
+      },
+      {
+        "id": "item-9",
+        "indent": 0,
+        "location": "hax-wp-killer.html",
+        "slug": "hax-wp-killer",
+        "order": 0,
+        "parent": null,
+        "title": "Slide 9",
+        "description": "The future we need, not the future we have.",
+        "metadata": {
+          "source": "https://www.youtube.com/watch?v=9MT-BNuUCpM",
+          "timecode": 0,
+          "author":" ",
+          "created": 1697033522,
+          "updated": 1697034021
+        }
+      },
+      {
+        "id": "item-10",
+        "indent": 0,
+        "location": "hax-wp-killer.html",
+        "slug": "hax-wp-killer",
+        "order": 0,
+        "parent": null,
+        "title": "Slide 10",
+        "description": "The future we need, not the future we have.",
+        "metadata": {
+          "source": "https://www.youtube.com/watch?v=9MT-BNuUCpM",
+          "timecode": 0,
+          "author":" ",
+          "created": 1697033522,
+          "updated": 1697034021
+        }
       }
     ]
   }
