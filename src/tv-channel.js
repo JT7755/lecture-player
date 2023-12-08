@@ -6,6 +6,7 @@ export class TvChannel extends LitElement {
   constructor() {
     super();
     this.title = '';
+    this.video = '';
     this.presenter = '';
   }
   // convention I enjoy using to define the tag's name
@@ -16,7 +17,9 @@ export class TvChannel extends LitElement {
   static get properties() {
     return {
       title: { type: String },
+      video: {type: String},
       presenter: { type: String },
+      timecode: {type: Number}
     };
   }
   // LitElement convention for applying styles JUST to our element
@@ -26,8 +29,12 @@ export class TvChannel extends LitElement {
         display: inline-flex;
       }
       .wrapper {
-        padding: 16px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
         background-color: #eeeeee;
+        margin-top: 12px;
       }
     `;
   }
@@ -36,6 +43,7 @@ export class TvChannel extends LitElement {
     return html`
       <div class="wrapper">
         <h3>${this.title}</h3>
+        <h3>${this.video}</h3>
         <h4>${this.presenter}</h4>
         <slot></slot>
       </div>  

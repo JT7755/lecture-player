@@ -23,6 +23,8 @@ export class TvApp extends LitElement {
       name: { type: String },
       source: { type: String },
       listings: { type: Array },
+      channels: {type: Object},
+      active: {type: String}
     };
   }
   // LitElement convention for applying styles JUST to our element
@@ -63,12 +65,18 @@ export class TvApp extends LitElement {
         display: inline-block;
         padding-top: 20px;
         padding-left: 50px;
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
       }
 
       .rightBtn {
         display: inline-block;
         padding-top: 20px;
         padding-left: 375px;
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
       }
 
       .
@@ -82,10 +90,9 @@ export class TvApp extends LitElement {
       <div class="gridPlayer">
         <div class="leftElement">
         <!-- video -->
-        <video-player class="player" source="https://www.youtube.com/watch?v=LrS7dqokTLE" accent-color="orange" dark track="https://haxtheweb.org/files/HAXshort.vtt"></video-player>
-        <tv-channel title="Chief Keef Discography" presenter="Mr. Keef">
-          <p>Chief Keef is an Amazing rapper with more than 6 studio albums.
-          </p>
+        <video-player class="player" source="https://www.youtube.com/watch?v=maBZZoK5Qbo" accent-color="orange" dark track="https://haxtheweb.org/files/HAXshort.vtt"></video-player>
+        <tv-channel title="Dark Souls Bosses" presenter="Ember">
+          Top 10 Hardest Bosses in the Souls Series
         </tv-channel>
       </div>
     </div>
@@ -94,11 +101,12 @@ export class TvApp extends LitElement {
       <h2>${this.name}</h2>
         ${
           this.listings.map(
-            (item) => html`
+            (item, index) => html`
               <tv-channel 
                 title="${item.title}"
                 presenter="${item.metadata.author}"
                 @click="${this.itemClick}"
+                timecode= "${item.metadata.timecode}"
               >
               </tv-channel>
             `
@@ -106,11 +114,8 @@ export class TvApp extends LitElement {
         }
       </div>
       </div>
-      <!-- dialog -->
-      <!-- <sl-dialog label="Dialog" class="dialog">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        <sl-button slot="footer" variant="primary" @click="${this.closeDialog}">Close</sl-button>
-      </sl-dialog> -->
+
+
       <div class="buttons">
         <div class="leftBtn">
         <button type="button">Previous</button>   
@@ -119,7 +124,7 @@ export class TvApp extends LitElement {
           <button type="button"> Next</button>
       </div>
       </div>
-      </div>
+      
     `;
   }
 
@@ -130,8 +135,12 @@ export class TvApp extends LitElement {
 
   itemClick(e) {
     console.log(e.target);
-    const dialog = this.shadowRoot.querySelector('.dialog');
-    dialog.show();
+    // this will give you the current time so that you can progress what's active based on it playing
+    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector("a11y-media-player").media.currentTime
+    // this forces the video to play
+    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').play()
+    // this forces the video to jump to this point in the video via SECONDS
+    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').seek(e.target.timecode)
   }
 
   // LitElement life cycle for when any property changes
