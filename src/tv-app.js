@@ -12,6 +12,7 @@ export class TvApp extends LitElement {
     this.name = '';
     this.source = new URL('../assets/channels.json', import.meta.url).href;
     this.listings = [];
+    this.activeIndex = 0;
   }
   // convention I enjoy using to define the tag's name
   static get tag() {
@@ -23,8 +24,8 @@ export class TvApp extends LitElement {
       name: { type: String },
       source: { type: String },
       listings: { type: Array },
-      channels: {type: Object},
-      active: {type: String}
+      activeIndex: {type: Number},
+
     };
   }
   // LitElement convention for applying styles JUST to our element
@@ -61,6 +62,14 @@ export class TvApp extends LitElement {
         height: 82.5vh;
       }
 
+      .description-box {
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          margin-top: 20px;
+        }
+
       .leftBtn {
         display: inline-block;
         padding-top: 20px;
@@ -73,13 +82,15 @@ export class TvApp extends LitElement {
       .rightBtn {
         display: inline-block;
         padding-top: 20px;
-        padding-left: 375px;
+        padding-left: 500px;
         font-size: 20px;
         width: 200px;
         height: 50px;
       }
-
-      .
+      .thumbnail {
+          max-width: 100%;
+          height: auto;
+      }
       `
     ];
   }
@@ -91,9 +102,9 @@ export class TvApp extends LitElement {
         <div class="leftElement">
         <!-- video -->
         <video-player class="player" source="https://www.youtube.com/watch?v=maBZZoK5Qbo" accent-color="orange" dark track="https://haxtheweb.org/files/HAXshort.vtt"></video-player>
-        <tv-channel title="Dark Souls Bosses" presenter="Ember">
-          Top 10 Hardest Bosses in the Souls Series
-        </tv-channel>
+        <div class="description-box">
+          <h2>Top 10 Hardest Bosses in the Souls Series. Games Dark Souls 1 - 3, Bloodborne, Sekrio.</h2>
+      </div>
       </div>
     </div>
     <div class="rightElement">
@@ -103,10 +114,13 @@ export class TvApp extends LitElement {
           this.listings.map(
             (item, index) => html`
               <tv-channel 
+                ?active="${index === this.activeIndex}"
+                index="${index}"
                 title="${item.title}"
                 presenter="${item.metadata.author}"
                 @click="${this.itemClick}"
                 timecode= "${item.metadata.timecode}"
+                thumbnail="${item.metadata.thumbnail}"
               >
               </tv-channel>
             `
@@ -114,7 +128,6 @@ export class TvApp extends LitElement {
         }
       </div>
       </div>
-
 
       <div class="buttons">
         <div class="leftBtn">

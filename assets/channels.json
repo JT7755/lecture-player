@@ -3,8 +3,8 @@
   "data": {
     "id": "123-123-123-123",
     "title": "EdTechJokerTV",
-    "author": "Ember",
-    "description": "Top 10 Hardest Bosses in the Souls Series.",
+    "author": " ",
+    "description": "Top 10 Hardest Bosses in the Souls Series. Games Dark Souls 1 - 3, Bloodborne, Sekrio",
     "license": "by-sa",
     "metadata": {},
     "items": [
@@ -13,11 +13,12 @@
         "indent": 0,
         "order": 0,
         "parent": null,
-        "title": "Number 10",
-        "description": "Manus, Father of the Abyss",
+        "title": "#10 DS1: Manus, Father of the Abyss",
+        "description": "Manus was a primordial human. The people of Oolacile were fooled by a serpent — presumably Kaathe — to excavate Manus's grave, which incited his wrath. This caused his humanity to go wild, leading to the creation of the Abyss. Manus went mad, eternally seeking his precious Broken Pendant.As the Abyss threatened to swallow the entirety of Oolacile, Knight Artorias, one of the Four Knights of Gwyn, travelled to Oolacile to face Manus. Artorias, a hero with nary a murmur of dark, was no match for the Father of the Abyss, and found himself corrupted by Manus' darkness.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=maBZZoK5Qbo",
           "timecode": 14,
+          "thumbnail": "https://darksouls.wiki.fextralife.com/file/Dark-Souls/Charge_manus.jpg",
           "created": 1697033522,
           "updated": 1697034021
         }
@@ -27,12 +28,12 @@
         "indent": 0,
         "order": 0,
         "parent": null,
-        "title": "Number 9",
-        "description": "What is water?",
+        "title": "#9 DS3: Slave Knight Gael",
+        "description": "Slave Knight Gael is a character in Dark Souls III: Ashes of Ariandel and the final boss in The Ringed City DLC. Believed to reside in the painting, he acted as some parental figure to The Painter, who calls him her uncle. It is believed that he departed the painting after she was locked away, taking the rotted remains of the physical portal with him, attempting to find another Ashen One to complete the prophecy that would burn away the rotted world so that the Painter could replace it.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=maBZZoK5Qbo",
           "timecode": 85,
-          "author":" ",
+          "thumbnail":"https://us.v-cdn.net/6030815/uploads/OTYU5K27BXVU/img-1268.jpeg",
           "created": 1697033522,
           "updated": 1697034021
         }
@@ -42,12 +43,12 @@
         "indent": 0,
         "order": 0,
         "parent": null,
-        "title": "Number 8",
-        "description": "The future we need, not the future we have.",
+        "title": "#8 DS3: The Nameless King",
+        "description": "The Nameless King, alongside his Stormdrake known as the King of the Storm, is an optional boss in Dark Souls III. The Nameless King is the firstborn child of Gwyn, Lord of Sunlight and one of the deities who resided in Anor Londo during the Age of Fire. He was worshiped by the humans as the god of war. During the war against the Dragons, the eldest son would have taken part in the fighting together with Dragon Slayer Ornstein and his father Gwyn, using sunlight like him to create lightning spears and infuse his weapons to damage the creatures' armor. The god of war would have distinguished himself as a dragon slayer, using his swordspear imbued with lightning and even creating his personal armor with the scales of his preys.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=maBZZoK5Qbo",
           "timecode": 155,
-          "author":" ",
+          "thumbnail":"https://i.ytimg.com/vi/myFzfd8I3dA/maxresdefault.jpg",
           "created": 1697033522,
           "updated": 1697034021
         }
@@ -57,12 +58,12 @@
         "indent": 0,
         "order": 0,
         "parent": null,
-        "title": "Number 7",
+        "title": "#7 DS3: Darkeater Midir",
         "description": "The future we need, not the future we have.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=maBZZoK5Qbo",
           "timecode": 221,
-          "author":" ",
+          "thumbnail":"https://preview.redd.it/any-monster-hunter-players-find-darkeater-midir-relatively-v0-8dujjyf5ia1a1.jpg?auto=webp&s=e1dcf98eff9179b3c490d89e94a8da172c4b1fae",
           "created": 1697033522,
           "updated": 1697034021
         }
@@ -72,12 +73,12 @@
         "indent": 0,
         "order": 0,
         "parent": null,
-        "title": "Number 6",
+        "title": "#6 ER: Maliketh, the Black Blade",
         "description": "The future we need, not the future we have.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=maBZZoK5Qbo",
           "timecode": 293,
-          "author":" ",
+          "thumbnail":"https://www.gamespot.com/a/uploads/screen_kubrick/1746/17463645/3970465-img_9780.jpg",
           "created": 1697033522,
           "updated": 1697034021
         }
@@ -87,12 +88,12 @@
         "indent": 0,
         "order": 0,
         "parent": null,
-        "title": "Number 5",
+        "title": "#5 ER: Radagon/Elden Beast",
         "description": "The future we need, not the future we have.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=maBZZoK5Qbo",
           "timecode": 366,
-          "author":" ",
+          "thumbnail":"https://i.ytimg.com/vi/ZSSWSUGW-Cs/maxresdefault.jpg",
           "created": 1697033522,
           "updated": 1697034021
         }
@@ -102,12 +103,12 @@
         "indent": 0,
         "order": 0,
         "parent": null,
-        "title": "Number 4",
+        "title": "#4 Sekrio: Demon of Hatred",
         "description": "The future we need, not the future we have.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=maBZZoK5Qbo",
           "timecode": 439,
-          "author":" ",
+          "thumbnail":"https://preview.redd.it/is-demon-of-hatred-the-best-boss-in-any-souls-game-v0-t8hmvlvk7bd81.jpg?auto=webp&s=58eb3b8b49088384893541b16f773e3af383e637",
           "created": 1697033522,
           "updated": 1697034021
         }
@@ -117,12 +118,12 @@
         "indent": 0,
         "order": 0,
         "parent": null,
-        "title": "Number 3",
+        "title": "#3 BloodBorne: Orphan of Kos",
         "description": "The future we need, not the future we have.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=maBZZoK5Qbo",
           "timecode": 498,
-          "author":" ",
+          "thumbnail":"https://i.ytimg.com/vi/79JSktm-alA/maxresdefault.jpg",
           "created": 1697033522,
           "updated": 1697034021
         }
@@ -132,12 +133,12 @@
         "indent": 0,
         "order": 0,
         "parent": null,
-        "title": "Number 2",
+        "title": "#2 DS3: Sister Friede",
         "description": "The future we need, not the future we have.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=maBZZoK5Qbo",
           "timecode": 558,
-          "author":" ",
+          "thumbnail":"https://miro.medium.com/max/1838/1*2QHbXyVA092RIhqfdM1X_Q.jpeg",
           "created": 1697033522,
           "updated": 1697034021
         }
@@ -152,7 +153,7 @@
         "metadata": {
           "source": "https://www.youtube.com/watch?v=maBZZoK5Qbo",
           "timecode": 623,
-          "author":" ",
+          "thumbnail":"https://i.ytimg.com/vi/eUHolemmgIE/maxresdefault.jpg",
           "created": 1697033522,
           "updated": 1697034021
         }
@@ -162,12 +163,12 @@
         "indent": 0,
         "order": 0,
         "parent": null,
-        "title": "Number 1",
+        "title": "#1 ER: Malenia, Blade of Miquella",
         "description": "The future we need, not the future we have.",
         "metadata": {
           "source": "https://www.youtube.com/watch?v=maBZZoK5Qbo",
           "timecode": 667,
-          "author":" ",
+          "thumbnail":"https://oyster.ignimgs.com/mediawiki/apis.ign.com/elden-ring/e/e5/20220307193717_1.jpg?width=1280",
           "created": 1697033522,
           "updated": 1697034021
         }
