@@ -25,7 +25,7 @@ export class TvChannel extends LitElement {
       thumbnail: {type: String},
       active: {type: Boolean, reflect: true},
       description: {type: String},
-      index: {type: Number},
+      index: {type: Number}
     };
   }
   // LitElement convention for applying styles JUST to our element
@@ -40,8 +40,7 @@ export class TvChannel extends LitElement {
       }
 
       :host([active]) {
-        background-color: blue;
-        object-fit: cover;
+        background-color: #746BFF;
       }
       .thumbnail {
         max-width: 100%;

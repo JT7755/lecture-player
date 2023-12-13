@@ -24,7 +24,7 @@ export class TvApp extends LitElement {
       name: { type: String },
       source: { type: String },
       listings: { type: Array },
-      activeIndex: {type: Number},
+      activeIndex: {type: Number}
 
     };
   }
@@ -33,7 +33,8 @@ export class TvApp extends LitElement {
     return [
       css`
       :host {
-        
+        font-family: "Times New Roman";
+        display: block;
       }
       .guideboxes {
         display: grid;
@@ -46,7 +47,7 @@ export class TvApp extends LitElement {
       .description-box {
         border-radius: 8px;
         padding: 20px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 8px rgba(159,90,253,1);
       }
 
       .leftElement {
@@ -68,17 +69,32 @@ export class TvApp extends LitElement {
         height: 82.5vh;
       }
 
-      .previous-button,
-      .next-button {
+      .previous-button {
         display: inline-block;
+        padding-right: 20px;
         padding-left: 20px;
-        margin-left: 20px;
+        margin-left: 50px;
         margin-bottom: 15px;
         margin-top: 15px;
         font-size: 20px;
         width: 200px;
         height: 50px;
+        background-color: #746BFF;
       }
+
+      .next-button {
+        display: inline-block;
+        padding-left: 20px;
+        margin-left: 585px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        font-size: 20px;
+        width: 200px;
+        height: 50px;
+        background-color: #746BFF;
+      }
+
+
 
       .thumbnail {
           max-width: 100%;
@@ -101,6 +117,7 @@ export class TvApp extends LitElement {
       </div>
     </div>
     <div class="rightElement">
+      <!-- channels -->
       <div class="guideboxes">
       <h2>${this.name}</h2>
         ${this.listings.map(
@@ -113,7 +130,6 @@ export class TvApp extends LitElement {
                 @click="${this.itemClick}"
                 timecode= "${item.metadata.timecode}"
                 thumbnail="${item.metadata.thumbnail}"
-                minuteTranslation="${item.metadata.minuteTranslation}"
               >
               </tv-channel>
             `
@@ -121,7 +137,7 @@ export class TvApp extends LitElement {
         }
       </div>
       </div>
-
+      <!-- Buttons -->
       <div class="buttons">
         <button class="previous-button" @click="${this.prevSlide}">Previous</button>
         <button class="next-button" @click="${this.nextSlide}">Next</button>
@@ -129,6 +145,14 @@ export class TvApp extends LitElement {
       </div>
       
     `;
+  }
+
+  prevSlide() {
+    this.activeIndex = Math.max(0, this.activeIndex - 1);
+  }
+
+  nextSlide() {
+    this.activeIndex = Math.min(this.listings.length - 1, this.activeIndex + 1);  
   }
 
   itemClick(e) {
@@ -158,17 +182,6 @@ export class TvApp extends LitElement {
       
     });
   }
-
-  prevSlide() {
-    this.activeIndex = Math.max(0, this.activeIndex - 1);
-    
-  }
-
-  nextSlide() {
-    this.activeIndex = Math.min(this.listings.length - 1, this.activeIndex + 1);  
-
-  }
-
 
   connectedCallback() {
     super.connectedCallback();
