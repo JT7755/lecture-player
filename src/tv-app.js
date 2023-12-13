@@ -43,6 +43,12 @@ export class TvApp extends LitElement {
         display: grid;
       }
 
+      .description-box {
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+
       .leftElement {
         grid-column: 1;
         size: 100px;
@@ -62,31 +68,18 @@ export class TvApp extends LitElement {
         height: 82.5vh;
       }
 
-      .description-box {
-          background-color: #fff;
-          border-radius: 8px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          padding: 20px;
-          margin-top: 20px;
-        }
-
-      .leftBtn {
+      .previous-button,
+      .next-button {
         display: inline-block;
-        padding-top: 20px;
-        padding-left: 50px;
+        padding-left: 20px;
+        margin-left: 20px;
+        margin-bottom: 15px;
+        margin-top: 15px;
         font-size: 20px;
         width: 200px;
         height: 50px;
       }
 
-      .rightBtn {
-        display: inline-block;
-        padding-top: 20px;
-        padding-left: 500px;
-        font-size: 20px;
-        width: 200px;
-        height: 50px;
-      }
       .thumbnail {
           max-width: 100%;
           height: auto;
@@ -103,15 +96,14 @@ export class TvApp extends LitElement {
         <!-- video -->
         <video-player class="player" source="https://www.youtube.com/watch?v=maBZZoK5Qbo" accent-color="orange" dark track="https://haxtheweb.org/files/HAXshort.vtt"></video-player>
         <div class="description-box">
-          <h2>Top 10 Hardest Bosses in the Souls Series. Games Dark Souls 1 - 3, Bloodborne, Sekrio.</h2>
+          ${this.listings.length > 0 ? this.listings[this.activeIndex].description : ''}
       </div>
       </div>
     </div>
     <div class="rightElement">
       <div class="guideboxes">
       <h2>${this.name}</h2>
-        ${
-          this.listings.map(
+        ${this.listings.map(
             (item, index) => html`
               <tv-channel 
                 ?active="${index === this.activeIndex}"
@@ -121,6 +113,7 @@ export class TvApp extends LitElement {
                 @click="${this.itemClick}"
                 timecode= "${item.metadata.timecode}"
                 thumbnail="${item.metadata.thumbnail}"
+                minuteTranslation="${item.metadata.minuteTranslation}"
               >
               </tv-channel>
             `
@@ -130,43 +123,65 @@ export class TvApp extends LitElement {
       </div>
 
       <div class="buttons">
-        <div class="leftBtn">
-        <button type="button">Previous</button>   
-        </div>
-        <div class="rightBtn">
-          <button type="button"> Next</button>
+        <button class="previous-button" @click="${this.prevSlide}">Previous</button>
+        <button class="next-button" @click="${this.nextSlide}">Next</button>
       </div>
       </div>
       
     `;
   }
 
-  closeDialog(e) {
-    const dialog = this.shadowRoot.querySelector('.dialog');
-    dialog.hide();
-  }
-
   itemClick(e) {
     console.log(e.target);
-    // this will give you the current time so that you can progress what's active based on it playing
-    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector("a11y-media-player").media.currentTime
-    // this forces the video to play
-    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').play()
-    // this forces the video to jump to this point in the video via SECONDS
-    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').seek(e.target.timecode)
+    this.activeIndex= e.target.index;
+    
+    this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').play();
+   
   }
 
-  // LitElement life cycle for when any property changes
   updated(changedProperties) {
-    if (super.updated) {
-      super.updated(changedProperties);
-    }
+    super.updated(changedProperties);
     changedProperties.forEach((oldValue, propName) => {
       if (propName === "source" && this[propName]) {
         this.updateSourceData(this[propName]);
       }
+
+      if(propName === "activeIndex"){
+        console.log(this.shadowRoot.querySelectorAll("tv-channel"));
+        console.log(this.activeIndex)
+
+        var activeChannel = this.shadowRoot.querySelector("tv-channel[index = '" + this.activeIndex + "' ] ");
+       
+        console.log(activeChannel);
+        this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').seek(activeChannel.timecode);
+      }
+      
     });
   }
+
+  prevSlide() {
+    this.activeIndex = Math.max(0, this.activeIndex - 1);
+    
+  }
+
+  nextSlide() {
+    this.activeIndex = Math.min(this.listings.length - 1, this.activeIndex + 1);  
+
+  }
+
+
+  connectedCallback() {
+    super.connectedCallback();
+    
+    setInterval(() => {
+      const currentTime = this.shadowRoot.querySelector('video-player').shadowRoot.querySelector('a11y-media-player').media.currentTime;
+      if (this.activeIndex + 1 < this.listings.length &&
+          currentTime >= this.listings[this.activeIndex + 1].metadata.timecode) {
+        this.activeIndex++;
+      }
+    }, 1000);
+  }
+
 
   async updateSourceData(source) {
     await fetch(source).then((resp) => resp.ok ? resp.json() : []).then((responseData) => {

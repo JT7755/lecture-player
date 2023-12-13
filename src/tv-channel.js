@@ -9,6 +9,7 @@ export class TvChannel extends LitElement {
     this.video = '';
     this.presenter = '';
     this.thumbnail = '';
+    this.description = '';
   }
   // convention I enjoy using to define the tag's name
   static get tag() {
@@ -23,14 +24,24 @@ export class TvChannel extends LitElement {
       timecode: {type: Number},
       thumbnail: {type: String},
       active: {type: Boolean, reflect: true},
-      index: {type: Number}
+      description: {type: String},
+      index: {type: Number},
     };
   }
   // LitElement convention for applying styles JUST to our element
   static get styles() {
     return css`
       :host {
-        display: inline-flex;
+        display: block;
+        padding: 8px;
+        margin-top: 6px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+      }
+
+      :host([active]) {
+        background-color: blue;
+        object-fit: cover;
       }
       .thumbnail {
         max-width: 100%;
@@ -39,10 +50,7 @@ export class TvChannel extends LitElement {
         object-fit: cover;
       }
       .wrapper {
-        padding-top: 10px;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 10px;
+        padding: 10px;
         background-color: #eeeeee;
         margin-top: 12px;
       }
