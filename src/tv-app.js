@@ -52,14 +52,20 @@ export class TvApp extends LitElement {
       .leftElement {
         grid-column: 1;
         size: 100px;
+        margin-top: 50px;
+        margin-left: 50px;
       }
 
       .rightElement{
+        padding-left: 100px;
         grid-column: 2;
         width: 300px;
+        font-size: .94rem;
+        margin-top: 32px;
         text-align: center;
         -webkit-overflow-scrolling: touch;
         overflow-y: auto;
+        height: 82.5vh;
       }
 
       .previous-button {
@@ -88,15 +94,8 @@ export class TvApp extends LitElement {
       }
 
       .thumbnail {
-        max-width: 100%;
-        height: auto;
-      }
-
-      @media screen and (max-width: 800px) {
-        .videoContainer{
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-        }
+          max-width: 100%;
+          height: auto;
       }
       `
     ];
@@ -161,7 +160,6 @@ export class TvApp extends LitElement {
    
   }
 
-  // LitElement life cycle for when any property changes
   updated(changedProperties) {
     super.updated(changedProperties);
     changedProperties.forEach((oldValue, propName) => {
