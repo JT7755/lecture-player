@@ -107,7 +107,7 @@ export class TvApp extends LitElement {
       <div class="gridPlayer">
         <div class="leftElement">
         <!-- video -->
-        <video-player class="player" source="https://www.youtube.com/watch?v=maBZZoK5Qbo" accent-color="orange" dark track="https://haxtheweb.org/files/HAXshort.vtt"></video-player>
+        <video-player class="player" source="https://www.youtube.com/watch?v=maBZZoK5Qbo" accent-color="purple" dark track="https://haxtheweb.org/files/HAXshort.vtt"></video-player>
         <div class="description-box">
           ${this.listings.length > 0 ? this.listings[this.activeIndex].description : ''}
       </div>
